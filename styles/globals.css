@@ -1,0 +1,10 @@
+html,
+body {
+  background-color: lightgrey;
+}
+a:hover {
+  color: green;
+}
+a:link {
+  color: blue;
+}
