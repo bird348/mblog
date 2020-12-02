@@ -2,7 +2,6 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import * as React from 'react';
 import { AuthProvider } from '../auth';
-import { FacebookProvider } from 'react-facebook';
 
 
 function MyApp({ Component, pageProps }) {
@@ -17,9 +16,7 @@ function MyApp({ Component, pageProps }) {
           <link rel="icon" type="image/png" sizes="32x32" href="/mBlog.ico" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
         </Head>
-        <FacebookProvider appId={process.env.NEXT_PUBLIC_APP_ID}>
-             <Component {...pageProps} />
-        </FacebookProvider>
+        <Component {...pageProps} />
       </AuthProvider>
   ) 
 }

@@ -6,7 +6,7 @@ import Recommended  from '../components/Recommended ';
 import firebase from '../firebaseClient';
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../auth';
-import { CommentsCount, Like } from 'react-facebook'; 
+
 
 export function getData(collec, order) {
   const [blogData, setBlogData] = useState([]);
@@ -59,7 +59,6 @@ export default function Home() {
               pathname: "/details",
               query: {
                   id: blog.id,
-                  urlId: document.URL + blog.id
                 } 
               }}>
                 <a className="float-right ml-3" style={textSm}>
@@ -67,15 +66,10 @@ export default function Home() {
                 </a>
               </Link>
 
-              <span className="text-right pr-5 text-muted">
-                <CommentsCount href={document.URL + blog.id} />
-              </span>
-
               <Link href={{
               pathname: "/details",
               query: {
                   id: blog.id,
-                  urlId: document.URL + blog.id
                 },
               }}>
                 <a className="btn btn-block btn-outline-success" style={textSm}>

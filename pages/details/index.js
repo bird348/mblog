@@ -3,16 +3,14 @@ import firebase from '../../firebaseClient';
 import Layout from '../../components/Layout';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Comments, CommentsCount, Like } from 'react-facebook';
 
 // แปลง String to tag html
 {/* <div dangerouslySetInnerHTML={{__html: '<strong>strong text</strong>'}} /> */}
 function DetailssBlog() {
     const router = useRouter();
-    const { id, urlId } = router.query;
+    const { id  } = router.query;
     const textSm ={fontSize: "15px"};
     const [blog, setBlog] = useState({});
-    const [fullUrl, setFullUrl] = useState("");
     
     useEffect(() => {
         if(id) {
@@ -22,14 +20,7 @@ function DetailssBlog() {
             })
         }
     }, [id])
-    
-    useEffect(() => {
-        if(urlId) {
-            let url = document.URL;
-            setFullUrl(urlId);
-        }
-    }, [urlId])
-    
+   
     return(
         <Layout title="รายละเอียด">
             <div className="container col-md-8 mt-3">
@@ -53,9 +44,6 @@ function DetailssBlog() {
                     {blog.imageUrl_5 && <img src={blog.imageUrl_5} alt={blog.category} style={{width: "100%", height:250}} />}
                     <p className="text-justify mt-3 text-muted" style={textSm} dangerouslySetInnerHTML={{__html: blog.details_5}} />
                     <hr />
-                    <div id="comment">
-                        <Comments href={fullUrl} id="comment" />
-                    </div>
                 </div>
             <Link href="/"><a className="btn btn-block btn-success text-center mb-3">ไปที่หน้าหลัก</a></Link>
             </div>
