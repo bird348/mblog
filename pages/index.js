@@ -9,7 +9,6 @@ import { useAuth } from '../auth';
 import { CommentsCount, Like } from 'react-facebook'; 
 
 export function getData(collec, order) {
-
   const [blogData, setBlogData] = useState([]);
 
   useEffect(() => {
@@ -30,6 +29,7 @@ export function getData(collec, order) {
 }
 
 export default function Home() {
+  
   let blog = {blogCollec: "blog", blogOrder: "create_date"};
   let tags = {tagCollec: "tags", tagOrder: "tag_title"};
   let recommended = {recommendedCollec: "recommended", recommendedOrder: "recommended_title"};
