@@ -6,6 +6,7 @@ import Recommended  from '../components/Recommended ';
 import firebase from '../firebaseClient';
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../auth';
+import Comment from '../components/Comment';
 
 
 export function getData(collec, order) {
@@ -54,18 +55,7 @@ export default function Home() {
             <img src={blog.imageUrl_title} alt={blog.category} style={{width: "100%", height: 200}} />
             <p className="mt-3 text-muted text-justify" style={textSm} dangerouslySetInnerHTML={{__html: blog.title}} />
             <div>
-
-              <Link href={{
-              pathname: "/details",
-              query: {
-                  id: blog.id,
-                } 
-              }}>
-                <a className="float-right ml-3" style={textSm}>
-                  ความคิดเห็น
-                </a>
-              </Link>
-
+            <Comment id={blog.id} />
               <Link href={{
               pathname: "/details",
               query: {
@@ -91,7 +81,7 @@ export default function Home() {
          <div className="text-success text-right">
             {user && <Link href="/create"><a className="btn btn-outline-success mb-3 mr-3">ไปหน้าเขียน Blog</a></Link>}
          </div>
-        <div className="row d-flex justify-content-around pt-3">
+        <div className="row d-flex justify-content-around">
           <div className="col-11 col-md-8">
             <div className="row">
               {renderBlog()}

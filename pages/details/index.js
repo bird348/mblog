@@ -3,6 +3,7 @@ import firebase from '../../firebaseClient';
 import Layout from '../../components/Layout';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Comment from '../../components/Comment';
 
 // แปลง String to tag html
 {/* <div dangerouslySetInnerHTML={{__html: '<strong>strong text</strong>'}} /> */}
@@ -43,7 +44,15 @@ function DetailssBlog() {
                     <p className="text-justify mt-3 text-muted" style={textSm} dangerouslySetInnerHTML={{__html: blog.details_4}} />
                     {blog.imageUrl_5 && <img src={blog.imageUrl_5} alt={blog.category} style={{width: "100%", height:250}} />}
                     <p className="text-justify mt-3 text-muted" style={textSm} dangerouslySetInnerHTML={{__html: blog.details_5}} />
+                    <Comment id={id} />
                     <hr />
+                    <div className="form-group">
+                        <label htmlFor="comment_mblog">
+                            แสดงความคิดเห็น
+                        </label>
+                        <textarea className="form-control" id="comment" rows="3"></textarea>
+                    </div>
+                    <button className="btn btn-success">ตกลง</button>
                 </div>
             <Link href="/"><a className="btn btn-block btn-success text-center mb-3">ไปที่หน้าหลัก</a></Link>
             </div>
