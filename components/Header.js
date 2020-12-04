@@ -5,7 +5,7 @@ import { useAuth } from '../auth';
 export default function Header() {
     const {user, email} = useAuth();
     return(
-        <div className="shadow p-2 mb-3 bg-white rounded sticky-top" style={{height: "20%"}}>
+        <div className="shadow p-2 mb-3 bg-white rounded sticky-top" style={{height: "80px"}}>
             <div className="container bg-white">
                 <Link href="/">
                     <a>

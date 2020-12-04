@@ -55,7 +55,7 @@ export default function Home() {
             <img src={blog.imageUrl_title} alt={blog.category} style={{width: "100%", height: 200}} />
             <p className="mt-3 text-muted text-justify" style={textSm} dangerouslySetInnerHTML={{__html: blog.title}} />
             <div>
-            <Comment id={blog.id} />
+            <Comment id={blog.id} like={blog.like} unlike={blog.unlike} visitors={blog.visitors} comments_count={blog.comments_count} />
               <Link href={{
               pathname: "/details",
               query: {
